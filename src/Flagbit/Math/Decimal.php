@@ -2,6 +2,14 @@
 
 namespace Flagbit\Math;
 
+/**
+ * Decimal class for PHP
+ *
+ * Provides a (relatively) safe way to handle fixed precision values in
+ * your application.
+ *
+ * The API is roghly based on the Java BigDecimal API.
+ */
 class Decimal
 {
     /**
