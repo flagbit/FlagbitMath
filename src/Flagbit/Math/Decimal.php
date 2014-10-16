@@ -18,7 +18,7 @@ class Decimal
      * @param mixed $value
      * @param int  $scale
      */
-    public function __construct($value, $scale = 0)
+    public function __construct($value, $scale)
     {
         $this->scale = (int) $scale;
 
