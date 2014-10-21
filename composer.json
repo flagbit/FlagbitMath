@@ -1,5 +1,6 @@
 {
     "name": "flagbit/math",
+    "description": "Minimalistic library for fixed point arithmetic.",
     "type": "library",
     "license": "BSD-3-Clause",
     "authors": [

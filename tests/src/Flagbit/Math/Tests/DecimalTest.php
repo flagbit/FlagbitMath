@@ -36,6 +36,7 @@ class DecimalTest extends \PHPUnit_Framework_TestCase
             array(10, 0, 0.00001, 5, '10.00001'),
             array(0.5, 1, 0.1, 1, '0.6'),
             array(0.86, 2, -0.065, 3, '0.795'),
+            array('999999999999999999999999999999999999999999999', 0, 1, 0, '1000000000000000000000000000000000000000000000'),
         );
     }
 
@@ -54,6 +55,7 @@ class DecimalTest extends \PHPUnit_Framework_TestCase
         return array(
             array(10, 0, 0.00001, 5, '1000000'),
             array(0.5, 1, 0.1, 1, '5'),
+            array(1, 0, 3, 8, '0.33333333'),
         );
     }
 
