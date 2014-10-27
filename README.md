@@ -1,4 +1,4 @@
-# FlagbitMath [![Build Status](https://travis-ci.org/Flagbit/FlagbitMath.svg?branch=master)](https://travis-ci.org/Flagbit/FlagbitMath) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/ce02cf7d-e868-4db7-86f5-4cfbd21fb817/mini.png)](https://insight.sensiolabs.com/projects/ce02cf7d-e868-4db7-86f5-4cfbd21fb817)
+# FlagbitMath [![Build Status](https://travis-ci.org/Flagbit/FlagbitMath.svg?branch=master)](https://travis-ci.org/Flagbit/FlagbitMath) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/f821d0cc-7304-4310-a731-e0433d6da00c/mini.png)](https://insight.sensiolabs.com/projects/f821d0cc-7304-4310-a731-e0433d6da00c)
 
 ## Usage
 
