@@ -12,6 +12,8 @@ namespace Flagbit\Math;
  */
 class Decimal
 {
+    const DECIMAL_POINT = '.';
+
     /**
      * @var string
      */
@@ -26,8 +28,11 @@ class Decimal
      * @param mixed $value
      * @param int  $scale
      */
-    public function __construct($value, $scale)
+    public function __construct($value, $scale = null)
     {
+        if (is_null($scale)) {
+            $scale = $this->autodetectScale($value);
+        }
         $this->scale = (int) $scale;
 
         if (is_float($value)) {
@@ -87,6 +92,21 @@ class Decimal
     {
         $scale = max($this->scale, $subtrahend->getScale());
         return new Decimal(bcsub($this, $subtrahend, $scale), $scale);
+    }
+
+    /**
+     * @param $value
+     *
+     * @return int
+     */
+    private function autodetectScale($value)
+    {
+        $scale = 0;
+        $decimalPointPos = strpos($value, self::DECIMAL_POINT);
+        if (false !== $decimalPointPos) {
+            $scale = strlen(substr($value, $decimalPointPos + 1));
+        }
+        return $scale;
     }
 
     /**

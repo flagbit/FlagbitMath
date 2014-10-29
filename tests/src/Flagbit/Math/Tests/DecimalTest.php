@@ -30,6 +30,27 @@ class DecimalTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($result, (string) new Decimal($decimal, $scale));
     }
 
+    public function provideScaleIsAutodetected()
+    {
+        return array(
+            array(0.2, 1),
+            array(4711, 0),
+            array('0.999999999999999999999999999999999999999999999', 45),
+            array('0.1', 1),
+            array('1', 0),
+            array('999999999999999999999999999999999999999999999', 0),
+        );
+    }
+
+    /**
+     * @dataProvider provideScaleIsAutodetected
+     */
+    public function testScaleIsAutodetected($value, $scale)
+    {
+        $decimal = new Decimal($value);
+        $this->assertEquals($scale, $decimal->getScale());
+    }
+
     public function provideAdd()
     {
         return array(
