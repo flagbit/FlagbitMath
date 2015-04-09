@@ -6,3 +6,7 @@
 $dividend = new \Flagbit\Math\Decimal(1, 8);
 $quotient = $dividend->divide(new \Flagbit\Math\Decimal(3, 8));
 ```
+
+## Alternatives
+
+* https://github.com/moontoast/math
