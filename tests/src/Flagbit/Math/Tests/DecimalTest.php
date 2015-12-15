@@ -19,6 +19,10 @@ class DecimalTest extends \PHPUnit_Framework_TestCase
 
             array('0.003', 3, '0.003'),
             array('-0.003', 3, '-0.003'),
+
+            array('0.999999999999999999999999999999999999999999999', 1, '0.9'),
+
+            array(new Decimal('0.34', 2), 1, '0.3'),
         );
     }
 
@@ -39,6 +43,8 @@ class DecimalTest extends \PHPUnit_Framework_TestCase
             array('0.1', 1),
             array('1', 0),
             array('999999999999999999999999999999999999999999999', 0),
+
+            array('-1.1', 1),
         );
     }
 
@@ -116,10 +122,24 @@ class DecimalTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider provideSubtract
      */
-
     public function testSubtract($minuend, $minuendScale, $subtrahend, $subtrahendScale, $difference)
     {
         $minuend = new Decimal($minuend, $minuendScale);
         $this->assertEquals($difference, (string) $minuend->subtract(new Decimal($subtrahend, $subtrahendScale)));
+    }
+
+    public function provideFloor()
+    {
+        return array(
+            array(new Decimal('0.9'), 0, '0'),
+        );
+    }
+
+    /**
+     * @dataProvider provideFloor
+     */
+    public function testFloor(Decimal $decimal, $precision,$expected)
+    {
+        $this->assertEquals($expected, (string) $decimal->floor($precision));
     }
 }

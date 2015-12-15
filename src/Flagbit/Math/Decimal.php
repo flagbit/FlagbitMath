@@ -39,7 +39,12 @@ class Decimal
             $value = number_format($value, $this->scale);
         }
 
-        $this->value = (string) $value;
+        $value = (string) $value;
+
+        // drop additional precision
+        $value = bcadd($value, 0, $scale);
+
+        $this->value = $value;
     }
 
     /**
@@ -92,6 +97,17 @@ class Decimal
     {
         $scale = max($this->scale, $subtrahend->getScale());
         return new Decimal(bcsub($this, $subtrahend, $scale), $scale);
+    }
+
+    /**
+     * @param int $precision
+     *
+     * @return Decimal
+     */
+    public function floor($precision = 0)
+    {
+        $roundedValue = (string) $this;
+        return new Decimal($roundedValue, $precision);
     }
 
     /**
